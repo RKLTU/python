@@ -22,7 +22,7 @@ app.include_router(auth_router)
 app.include_router(profile_router)
 
 
-@app.get("/", tags=["Health"])
+@app.get("/")
 def root():
     return {
         "message": "Nyurveda Backend is running",
@@ -31,6 +31,6 @@ def root():
     }
 
 
-@app.get("/health", tags=["Health"])
+@app.get("/health")
 def health_check():
     return {"status": "ok"}
