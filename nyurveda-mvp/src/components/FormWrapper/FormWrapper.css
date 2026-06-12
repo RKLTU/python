@@ -1,0 +1,124 @@
+/**
+ * FormWrapper Styles
+ * 
+ * Provides centered card layout with consistent spacing
+ * Uses CSS variables from variables.css for theming
+ */
+
+/* Main Container */
+.form-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: var(--space-lg);
+}
+
+/* Card Container */
+.form-wrapper-card {
+  width: 100%;
+  max-width: var(--max-width);
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-3xl);
+  transition: all var(--transition-base);
+}
+
+/* Header Section */
+.form-wrapper-header {
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+}
+
+.form-wrapper-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+  margin-bottom: var(--space-md);
+  line-height: 1.3;
+}
+
+.form-wrapper-subtitle {
+  font-size: var(--text-base);
+  color: var(--color-text-light);
+  line-height: 1.7;
+  margin: 0;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Content Section */
+.form-wrapper-content {
+  width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .form-wrapper {
+    padding: var(--space-md);
+  }
+
+  .form-wrapper-card {
+    padding: var(--space-xl);
+    border-radius: var(--radius-md);
+  }
+
+  .form-wrapper-title {
+    font-size: var(--text-xl);
+  }
+}
+
+@media (max-width: 480px) {
+  .form-wrapper {
+    padding: var(--space-sm);
+  }
+
+  .form-wrapper-card {
+    padding: var(--space-lg);
+  }
+
+  .form-wrapper-header {
+    margin-bottom: var(--space-xl);
+  }
+
+  .form-wrapper-title {
+    font-size: var(--text-lg);
+  }
+
+  .form-wrapper-subtitle {
+    font-size: var(--text-sm);
+  }
+}
+
+/* Hover Effect for Desktop */
+@media (hover: hover) {
+  .form-wrapper-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+}
+
+/* Animation for form appearance */
+.form-wrapper {
+  animation: fadeInUp 0.4s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Focus styles for accessibility */
+.form-wrapper-card:focus-within {
+  box-shadow: var(--shadow-lg);
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
