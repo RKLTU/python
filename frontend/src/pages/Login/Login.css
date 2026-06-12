@@ -1,0 +1,118 @@
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-lg);
+  background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-bg-alt) 100%);
+}
+
+/* Hero Section */
+.login-hero {
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+  padding-top: var(--space-xl);
+}
+
+.login-logo {
+  font-size: 4rem;
+  margin-bottom: var(--space-md);
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.login-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-4xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-primary);
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-xs);
+}
+
+.login-subtitle {
+  font-size: var(--text-lg);
+  color: var(--color-text-light);
+  font-style: italic;
+  margin-bottom: 0;
+}
+
+/* Form Styling */
+.login-form {
+  margin-bottom: var(--space-xl);
+}
+
+/* Name Fields - Side by Side Layout */
+.login-name-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.login-btn {
+  width: 100%;
+  margin-top: var(--space-lg);
+}
+
+/* Features Section */
+.login-features {
+  display: flex;
+  justify-content: space-around;
+  padding-top: var(--space-xl);
+  border-top: 1px solid var(--color-bg-alt);
+}
+
+.login-feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  text-align: center;
+}
+
+.login-feature-icon {
+  font-size: var(--text-2xl);
+}
+
+.login-feature span:last-child {
+  font-size: var(--text-sm);
+  color: var(--color-text-light);
+  font-weight: var(--weight-medium);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .login-name-fields {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-page {
+    padding: var(--space-md);
+  }
+
+  .login-hero {
+    padding-top: var(--space-md);
+    margin-bottom: var(--space-xl);
+  }
+
+  .login-title {
+    font-size: var(--text-3xl);
+  }
+
+  .login-features {
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .login-feature {
+    flex-direction: row;
+    gap: var(--space-md);
+  }
+}

@@ -1,22 +1,24 @@
-"""
-config.py
----------
-Loads environment variables from the .env file using python-dotenv.
-
-Why a separate config file?
-- Keeps all configuration in one place.
-- Easy to change settings without touching application code.
-"""
-
 import os
 from dotenv import load_dotenv
 
-# Load variables from the .env file in the backend/ directory
 load_dotenv()
 
-# Supabase credentials — found in Supabase dashboard → Settings → API
-SUPABASE_URL: str = os.getenv("SUPABASE_URL", "")
-SUPABASE_ANON_KEY: str = os.getenv("SUPABASE_ANON_KEY", "")
+SUPABASE_URL: str = os.getenv("SUPABASE_URL", "").strip().rstrip("/")
+SUPABASE_ANON_KEY: str = os.getenv("SUPABASE_ANON_KEY", "").strip()
 
-# The frontend URL that is allowed to call this backend (CORS)
-FRONTEND_ORIGIN: str = os.getenv("FRONTEND_ORIGIN", "http://localhost:5173")
+_raw_frontend_origins = os.getenv(
+    "FRONTEND_ORIGINS",
+    os.getenv("FRONTEND_ORIGIN", "http://localhost:5173"),
+)
+
+FRONTEND_ORIGINS: list[str] = [
+    origin.strip().rstrip("/")
+    for origin in _raw_frontend_origins.split(",")
+    if origin.strip()
+]
+
+if not SUPABASE_URL:
+    raise RuntimeError("Missing SUPABASE_URL environment variable")
+
+if not SUPABASE_ANON_KEY:
+    raise RuntimeError("Missing SUPABASE_ANON_KEY environment variable")

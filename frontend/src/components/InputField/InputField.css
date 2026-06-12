@@ -1,0 +1,157 @@
+/**
+ * InputField Styles
+ * 
+ * Provides consistent input styling with labels, placeholders,
+ * and error states. Uses CSS variables for theming.
+ */
+
+/* Main Container */
+.input-field {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+/* Label Styles */
+.input-field-label {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  transition: color var(--transition-fast);
+}
+
+/* Required Asterisk */
+.input-field-required {
+  color: var(--color-error);
+  font-weight: var(--weight-semibold);
+}
+
+/* Input Styles */
+.input-field-input {
+  width: 100%;
+  padding: var(--space-md);
+  font-size: var(--text-base);
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background-color: var(--color-white);
+  border: 2px solid var(--color-bg-alt);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+  line-height: 1.5;
+}
+
+/* Input Placeholder */
+.input-field-input::placeholder {
+  color: var(--color-text-muted);
+  transition: opacity var(--transition-fast);
+}
+
+.input-field-input:focus::placeholder {
+  opacity: 0.6;
+}
+
+/* Input Hover State */
+.input-field-input:hover:not(:disabled) {
+  border-color: var(--color-primary-light);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Input Focus State */
+.input-field-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px rgba(91, 140, 90, 0.12);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+/* Input Disabled State */
+.input-field-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: var(--color-bg-alt);
+}
+
+/* Error State Container */
+.input-field-error .input-field-input {
+  border-color: var(--color-error);
+}
+
+.input-field-error .input-field-input:focus {
+  border-color: var(--color-error);
+  box-shadow: 0 0 0 4px rgba(211, 47, 47, 0.12);
+}
+
+.input-field-error .input-field-label {
+  color: var(--color-error);
+}
+
+/* Error Message */
+.input-field-error-message {
+  font-size: var(--text-sm);
+  color: var(--color-error);
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  animation: slideIn 0.2s ease;
+}
+
+/* Animation for Error Message */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Input Types */
+.input-field-input[type="password"] {
+  letter-spacing: 0.1em;
+}
+
+.input-field-input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.input-field-input[type="number"]::-webkit-outer-spin-button,
+.input-field-input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Success State */
+.input-field-success .input-field-input {
+  border-color: var(--color-success);
+}
+
+.input-field-success .input-field-input:focus {
+  border-color: var(--color-success);
+  box-shadow: 0 0 0 4px rgba(56, 142, 60, 0.12);
+}
+
+.input-field-success .input-field-label {
+  color: var(--color-success);
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .input-field-input {
+    padding: var(--space-sm) var(--space-md);
+    font-size: var(--text-base);
+  }
+
+  .input-field-label {
+    font-size: var(--text-sm);
+  }
+
+  .input-field-error-message {
+    font-size: var(--text-xs);
+  }
+}
