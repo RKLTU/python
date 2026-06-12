@@ -116,3 +116,12 @@
     gap: var(--space-md);
   }
 }
+.login-error {
+  color: #e74c3c;
+  background: #fdecea;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  text-align: center;
+}

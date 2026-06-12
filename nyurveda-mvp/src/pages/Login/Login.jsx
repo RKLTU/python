@@ -152,10 +152,82 @@ function Login() {
       >
         <form className="login-form" onSubmit={handleSubmit}>
           {errors.general && (
-            <div
-              style={{
-                color: '#e74c3c',
-                background: '#fdecea',
-                padding: '10px',
-                borderRadius: '8px',
-                
+            <div className="login-error">
+              {errors.general}
+            </div>
+          )}
+
+          <div className="login-name-fields">
+            <InputField
+              label="First Name"
+              placeholder="Enter your first name"
+              value={formData.firstName}
+              onChange={(e) => handleChange('firstName', e.target.value)}
+              error={errors.firstName}
+              required
+            />
+
+            <InputField
+              label="Last Name"
+              placeholder="Enter your last name"
+              value={formData.lastName}
+              onChange={(e) => handleChange('lastName', e.target.value)}
+              error={errors.lastName}
+              required
+            />
+          </div>
+
+          <InputField
+            label="Email"
+            type="email"
+            placeholder="your@email.com"
+            value={formData.email}
+            onChange={(e) => handleChange('email', e.target.value)}
+            error={errors.email}
+            required
+          />
+
+          <InputField
+            label="Password"
+            type="password"
+            placeholder="Enter your password min 6 characters"
+            value={formData.password}
+            onChange={(e) => handleChange('password', e.target.value)}
+            error={errors.password}
+            required
+          />
+
+          <Button
+            type="submit"
+            variant="primary"
+            size="large"
+            className="login-btn"
+            disabled={isLoading}
+          >
+            {isLoading ? 'Creating Account...' : 'Begin Your Journey'}
+          </Button>
+        </form>
+
+        <div className="login-features">
+          <div className="login-feature">
+            <span className="login-feature-icon">🧘</span>
+            <span>Personalized Assessment</span>
+          </div>
+
+          <div className="login-feature">
+            <span className="login-feature-icon">🌱</span>
+            <span>Natural Remedies</span>
+          </div>
+
+          <div className="login-feature">
+            <span className="login-feature-icon">💚</span>
+            <span>Holistic Wellness</span>
+          </div>
+        </div>
+      </FormWrapper>
+    </div>
+  )
+}
+
+export default Login
+
